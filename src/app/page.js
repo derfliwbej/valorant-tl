@@ -1,4 +1,5 @@
 import Hero from "@/components/landing/Hero";
+import Instructions from "@/components/landing/Instructions";
 
 export default function Home() {
 
@@ -6,6 +7,7 @@ export default function Home() {
     <main>
       <div >
         <Hero />
+        <Instructions />
       </div>
     </main>
   )

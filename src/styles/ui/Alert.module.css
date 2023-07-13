@@ -1,0 +1,53 @@
+.alert {
+    width: 412px;
+    padding: 1rem 0.75rem;
+    position: fixed;
+    top: -500px;
+    left: 50%;
+    transform: translateX(-206px);
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-left-width: 5px;
+}
+
+.alert--show {
+    animation: 0.5s slidedown;
+    top: 15px;
+}
+
+.prompt {
+    background-color: #e5f6fd;
+    color: rgb(1, 67, 97);
+    border-left-color: #0288d1;
+}
+
+.success {
+    background-color: #edf7ed;
+    color: rgb(30, 70, 32);
+    border-left-color: #2e7d32;
+}
+
+.danger {
+    border-left-color: #d74242;
+    background-color: #fdeded;
+    color: rgb(95, 33, 32);
+}
+
+.warning {
+    background-color: #fff4e5;
+    color: rgb(102, 60, 0);
+    border-left-color: #ed6c02;
+}
+
+@keyframes slidedown {
+    from {
+        top: -50px;
+    }
+
+    to {
+        top: 15px;
+    }
+}

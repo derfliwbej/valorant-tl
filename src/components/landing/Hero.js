@@ -10,11 +10,23 @@ const anton = Anton({
 
 export default function Hero() {
     const [urlInput, setUrlInput] = useState('');
+    const [btnDisabled, setBtnDisabled] = useState(true);
+
+    const handleInputChange = (e) => {
+        const input = e.target.value;
+
+        setUrlInput(input);
+
+        if (!input) {
+            setBtnDisabled(true);
+        } else setBtnDisabled(false);
+    }
 
     const handleAuthorize = (e) => {
         e.preventDefault();
 
         setUrlInput('');
+        setBtnDisabled(true);
     };
 
     return (
@@ -23,8 +35,12 @@ export default function Hero() {
                 <h2 className={`${anton.className} text-7xl font-bold text-red-500 my-5`}>ValorantTL</h2>
                 <p className="text-white text-xl my-5">Nulla deserunt anim non non aliqua ut ad. Sint quis ad do nisi ad ea eu enim minim aliquip excepteur sint veniam. Id irure est sunt do commodo commodo dolore laborum ut ex tempor.</p>
                 <form onSubmit={handleAuthorize} className="flex">
-                    <input type="text" className="w-full py-2 px-3" placeholder="Enter URL here" onChange={ event => setUrlInput(event.target.value)} value={urlInput} />
-                    <button className="bg-red-500 px-3 font-bold text-white hover:brightness-95" type="submit">Authorize</button>
+                    <input type="text" className="w-full py-2 px-3" placeholder="Enter URL here" onChange={handleInputChange} value={urlInput} />
+                    <button disabled={btnDisabled} 
+                            className={"px-3 font-bold text-white " + (
+                                       btnDisabled ? "bg-gray-500" : "bg-red-500 hover:brightness-95"
+                                       )} 
+                            type="submit">Authorize</button>
                 </form>
             </div>
             <div className="absolute w-full h-screen -z-20 grayscale brightness-50 contrast-125">

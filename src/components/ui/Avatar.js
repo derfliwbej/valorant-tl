@@ -2,6 +2,10 @@ import useSWR from "swr";
 import { useAuth } from "@/components/providers/AuthProvider";
 import Image from "next/image";
 
+const DefaultIcon = () => {
+    return <div className="bg-slate-500 rounded-full h-10 w-10 animate-pulse"></div>
+};
+
 export default function Avatar({ size }) {
     const { user } = useAuth();
 
@@ -24,5 +28,5 @@ export default function Avatar({ size }) {
         return (
             <Image className="rounded-full" src={avatarURL} alt="Player Card" height={size} width={size} />
         );
-    } else return <></>
+    } else return <DefaultIcon />
 }

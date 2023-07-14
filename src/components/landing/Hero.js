@@ -95,7 +95,7 @@ export default function Hero() {
         <section id="hero" className="flex flex-col w-full h-screen items-center justify-center">
             <div className="max-w-xl text-center">
                 <h2 className={`${anton.className} text-7xl font-bold text-red-500 my-5`}>ValorantTL</h2>
-                <p className="text-white text-xl my-5">Nulla deserunt anim non non aliqua ut ad. Sint quis ad do nisi ad ea eu enim minim aliquip excepteur sint veniam. Id irure est sunt do commodo commodo dolore laborum ut ex tempor.</p>
+                <p className="text-white text-xl my-5">Access the contents of your VALORANT store anytime, anywhere. Follow the instructions at the bottom of this page to get started.</p>
                 <form onSubmit={handleAuthorize} className="flex">
                     <input disabled={loading} type="text" className="w-full py-2 px-3 text-black" placeholder="Enter URL here" onChange={handleInputChange} value={urlInput} />
                     <button disabled={btnDisabled || loading} 

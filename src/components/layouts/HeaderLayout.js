@@ -13,7 +13,7 @@ const anton = Anton({
 export default function HeaderLayout({ children }) {
     const router = useRouter();
     const [open, setOpen] = useState(false);
-    const { user } = useAuth();
+    const { user, isLoading } = useAuth();
 
     const handleLogout = async () => {
         await fetch('http://localhost:3000/api/logout');
@@ -35,13 +35,35 @@ export default function HeaderLayout({ children }) {
                     <div>
                         <Avatar size={75} />
                     </div>
-                    <div className="flex flex-col justify-center gap-1">
-                        <h1 className="text-2xl text-red-500">{user?.game_name}</h1>
-                        <h3 className="text-gray-500">#{user?.tag_line}</h3>
-                        <button className="bg-red-500 rounded-md" onClick={handleLogout}>
-                            Logout
-                        </button>
-                    </div>
+                    {user && (
+                        <div className="flex flex-col justify-center gap-1">
+                            <h1 className="text-2xl text-red-500">{user?.game_name}</h1>
+                            <h3 className="text-gray-500">#{user?.tag_line}</h3>
+                            <button className="bg-red-500 rounded-md" onClick={handleLogout}>
+                                Logout
+                            </button>
+                        </div>
+                    )}
+                    {!user && (
+                        <div className="flex flex-col justify-center gap-1">
+                            <div className="bg-slate-500 rounded-md animate-pulse w-fit">
+                                <span className="invisible text-2xl">
+                                    AAAAAAAA
+                                </span>
+                            </div>
+
+                            <div className="bg-slate-500 rounded-md animate-pulse w-fit">
+                                <span className="invisible">
+                                    <h3>#000000</h3>
+                                </span>
+                            </div>
+
+                            <button disabled={true} className="bg-gray-600 rounded-md">
+                                Logout
+                            </button>
+                        </div>
+                    )}
+                    
                     
                 </div>
                 <hr className="border-slate-500" />

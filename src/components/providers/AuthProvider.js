@@ -17,6 +17,7 @@ export default function AuthProvider({ children }) {
         const body = await res.json();
 
         if(res.status >= 400) {
+            router.refresh();
             return null;
         } else {
             return body;

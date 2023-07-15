@@ -1,7 +1,7 @@
 'use client';
 
-import HeaderLayout from "@/components/layouts/HeaderLayout";
 import { Anton } from "next/font/google";
+import UserContextWrapper from "@/components/layouts/UserContextWrapper";
 import StoreItem from "@/components/store/StoreItem";
 import StoreItemSkeleton from "@/components/store/StoreItemSkeleton";
 import useSWR from "swr";
@@ -23,7 +23,7 @@ export default function Store() {
     });
 
     return (
-        <HeaderLayout>
+        <UserContextWrapper>
             <h1 className={`${anton.className} text-3xl text-red-500 mb-5`}>Storefront</h1>
             {error && 'Error fetching items'}
             <div className="flex flex-wrap justify-evenly gap-5">
@@ -38,6 +38,6 @@ export default function Store() {
                     </>
                 )}
             </div>
-        </HeaderLayout>
+        </UserContextWrapper>
     );
 }

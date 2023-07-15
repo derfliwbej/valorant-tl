@@ -93,7 +93,7 @@ export default function Hero() {
     };
 
     return (
-        <section id="hero" className="flex flex-col w-full h-screen items-center justify-center">
+        <section id="hero" className="flex flex-col w-full h-screen items-center justify-center px-5">
             <div className="max-w-xl text-center">
                 <h2 className={`${anton.className} text-7xl font-bold text-red-500 my-5`}>ValorantTL</h2>
                 <p className="text-white text-xl my-5">Access the contents of your VALORANT store anytime, anywhere. Follow the instructions at the bottom of this page to get started.</p>

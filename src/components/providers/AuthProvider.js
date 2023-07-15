@@ -1,4 +1,5 @@
 "use client";
+import fetchUtil from "@/utils/fetchUtil";
 import { createContext, useContext, useState } from "react";
 import { useRouter } from "next/navigation";
 import useSWR from "swr";
@@ -13,7 +14,7 @@ export default function AuthProvider({ children }) {
     const router = useRouter();
 
     const getUser = async () => {
-        const res = await fetch('http://localhost:3000/api/user');
+        const res = await fetchUtil('/api/user');
         const body = await res.json();
 
         if(res.status >= 400) {

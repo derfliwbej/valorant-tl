@@ -1,4 +1,5 @@
 'use client';
+import fetchUtil from "@/utils/fetchUtil";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../providers/AuthProvider";
@@ -16,7 +17,7 @@ export default function HeaderLayout({ children }) {
     const { user, isLoading } = useAuth();
 
     const handleLogout = async () => {
-        await fetch('http://localhost:3000/api/logout');
+        await fetchUtil('/api/logout');
         router.push('/');
     }
 

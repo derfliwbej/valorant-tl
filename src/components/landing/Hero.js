@@ -3,6 +3,7 @@ import { Anton } from "next/font/google";
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import fetchUtil from "@/utils/fetchUtil";
 
 import Alert from "@/components/ui/Alert";
 import TopLoading from "@/components/ui/TopLoading";
@@ -61,7 +62,7 @@ export default function Hero() {
         const authorize = async (access_token) => {
             setLoading(true);
             try {
-                const res = await fetch('http://localhost:3000/api/auth', {
+                const res = await fetchUtil('/api/auth', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

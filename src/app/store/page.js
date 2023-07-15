@@ -5,6 +5,7 @@ import UserContextWrapper from "@/components/layouts/UserContextWrapper";
 import StoreItem from "@/components/store/StoreItem";
 import StoreItemSkeleton from "@/components/store/StoreItemSkeleton";
 import useSWR from "swr";
+import fetchUtil from "@/utils/fetchUtil";
 
 const anton = Anton({
     subsets: ['latin'],
@@ -13,7 +14,7 @@ const anton = Anton({
 
 export default function Store() {
     const { data: items, isLoading, error } = useSWR("api/store", async (url) => {
-        const res = await fetch(`http://localhost:3000/${url}`);
+        const res = await fetchUtil(`/${url}`);
 
         if (res.status >= 400) return null;
 

@@ -1,5 +1,3 @@
-'use client';
-
 import { Anton } from "next/font/google";
 import UserContextWrapper from "@/components/layouts/UserContextWrapper";
 import Storefront from "@/components/store/Storefront";

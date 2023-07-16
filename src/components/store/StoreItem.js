@@ -14,7 +14,7 @@ export default function StoreItem({ name, cost, displayIcon }) {
             </div>
             <div className={`${anton.className} text-xl`}>
                 <h1>{name}</h1>
-                <h1 className="flex gap-3 items-center"><span><Image priority src="/valorant-points-icon.png" height={25} width={25} /></span>{cost}</h1>
+                <h1 className="flex gap-3 items-center"><span><Image priority src="/valorant-points-icon.png" height={25} width={25} alt="Valorant Points Icon" /></span>{cost}</h1>
             </div>
         </div>
     );

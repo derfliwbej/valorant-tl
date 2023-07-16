@@ -32,10 +32,10 @@ export default function Penalties() {
                             <th className={`${anton.className} text-lg px-5 py-2`}>Queues</th>
                         </tr>
                         {
-                            penalties.map( penalty => {
+                            penalties.map( (penalty, i) => {
                                 const expiry = new Date(penalty.expiry);
                                 return (
-                                    <tr className="even:bg-slate-800 odd:bg-slate-700">
+                                    <tr key={i} className="even:bg-slate-800 odd:bg-slate-700">
                                         <td className="py-3">{expiry.toString()}</td>
                                         <td className="py-3">{penalty?.queues?.toString()}</td>
                                     </tr>  

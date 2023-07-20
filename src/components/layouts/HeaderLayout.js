@@ -1,5 +1,6 @@
 'use client';
 import fetchUtil from "@/utils/fetchUtil";
+import { useSWRConfig } from "swr";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../providers/AuthProvider";
@@ -13,11 +14,19 @@ const anton = Anton({
 
 export default function HeaderLayout({ children }) {
     const router = useRouter();
+    const { mutate } = useSWRConfig();
     const [open, setOpen] = useState(false);
     const { user, isLoading } = useAuth();
 
     const handleLogout = async () => {
         await fetchUtil('/api/logout');
+
+        mutate(
+            () => true,
+            undefined,
+            { revalidate: false }
+        );
+
         router.push('/');
     }
 

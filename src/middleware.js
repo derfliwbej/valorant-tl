@@ -34,7 +34,7 @@ export async function middleware(request) {
         }
     } 
     
-    if(pathname.startsWith('/store')) {
+    if(pathname.startsWith('/store') || pathname.startsWith('/penalties')) {
         const url = new URL(request.url);
         url.pathname = '/';
 

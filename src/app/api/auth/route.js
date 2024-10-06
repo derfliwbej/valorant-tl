@@ -12,7 +12,7 @@ export async function POST(request) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'User-Agent': 'RiotClient/63.0.9.4909983.4789131 rso-authenticator (Windows;10;;Professional, x64)',
+            'User-Agent': 'RiotClient/90.0.2.1805.3774 rso-auth (Windows;10;;Professional, x64) riot_client/0',
             'Authorization': `Bearer ${access_token}`
         }
     });

@@ -4,6 +4,8 @@ import jwtDecode, { InvalidTokenError } from "jwt-decode";
 const verifyTokens = async (access_token, entitlements_token, puuid) => {
     const res = await fetch(`https://pd.ap.a.pvp.net/account-xp/v1/players/${puuid}`, {
         headers: {
+            'X-Riot-ClientPlatform': 'ew0KCSJwbGF0Zm9ybVR5cGUiOiAiUEMiLA0KCSJwbGF0Zm9ybU9TIjogIldpbmRvd3MiLA0KCSJwbGF0Zm9ybU9TVmVyc2lvbiI6ICIxMC4wLjE5MDQyLjEuMjU2LjY0Yml0IiwNCgkicGxhdGZvcm1DaGlwc2V0IjogIlVua25vd24iDQp9',
+            'X-Riot-ClientVersion': 'release-09.06-shipping-10-2832364',    
             'X-Riot-Entitlements-JWT': entitlements_token,
             'Authorization': `Bearer ${access_token}`
         }
